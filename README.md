@@ -1,5 +1,5 @@
 # t7.js Syntax Package for Atom
 
-This is an Atom syntax package for the t7 JavaScript library.
+An Atom editor package that provides syntax highlighting for the t7 JavaScript templating library - http://t7js.com
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+![A screenshot of your package](http://t7js.com/img/screenshot.png)
