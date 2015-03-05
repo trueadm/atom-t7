@@ -1,9 +1,9 @@
 {
-  "name": "atom-t7",
+  "name": "t7",
   "version": "0.0.1",
   "private": true,
   "description": "Syntax highlighting for the t7 JavaScript library",
-  "repository": "https://github.com/atom/atom-t7",
+  "repository": "https://github.com/trueadm/atom-t7",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
