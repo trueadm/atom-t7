@@ -355,13 +355,13 @@
     "begin": "t7`",
     "beginCaptures": {
       "0": {
-        "name": "punctuation.definition.entity.js"
+        "name": "punctuation.definition.support.js"
       }
     },
     "end": "`",
     "endCaptures": {
       "0": {
-        "name": "punctuation.definition.entity.js"
+        "name": "punctuation.definition.support.js"
       }
     },
     "name": "string.quoted.template.js",
@@ -383,6 +383,9 @@
       },
       {
         'include': '#t7-tag-close'
+      },
+      {
+        'include': '#t7-component'
       },
       {
         'include': '#t7-tag-invalid'
@@ -697,7 +700,7 @@
     ]
   },
   't7-tag-open': {
-    'begin': '(<)([a-zA-Z0-9:$_]+)',
+    'begin': '(<)([^:][a-zA-Z0-9:-]+)',
     'end': '(/?>)',
     'name': 'tag.open.js.source',
     'endCaptures': {
@@ -737,6 +740,35 @@
       }
     }
   },
+  't7-component': {
+    'begin': '(<:)[^\ ]',
+    'end': '(/?>)',
+    'name': 'tag.open.js.source.support',
+    'endCaptures': {
+      '1': {
+        'name': 'entity'
+      }
+    },
+    'beginCaptures': {
+      '1': {
+        'name': 'entity'
+      },
+      '2': {
+        'name': 'entity.name.tag.js.t7'
+      }
+    },
+    'patterns': [
+      {
+        'include': '#t7-tag-attributes'
+      },
+      {
+        "include": "#t7-component-element"
+      },
+      {
+        "include": "#interpolated_js"
+      }
+    ]
+  },
   't7-tag-invalid': {
     'name': 'invalid.illegal.tag.incomplete.js',
     'match': '<\\s*>'
@@ -744,7 +776,7 @@
   "interpolated_js": {
     "patterns": [
       {
-        "begin": "\\$\\{",
+        "begin": '\\$\\{',
         "captures": {
           "0": {
             "name": "punctuation.section.embedded.js"
@@ -752,6 +784,25 @@
         },
         "end": "\\}",
         "name": "source.js.embedded.source",
+        "patterns": [
+          {
+            "include": "$self"
+          }
+        ]
+      }
+    ]
+  },
+  "t7-component-element": {
+    "patterns": [
+      {
+        "begin": "\\$\\{",
+        "captures": {
+          "0": {
+            "name": "support"
+          }
+        },
+        "end": "\\}",
+        "name": "entity",
         "patterns": [
           {
             "include": "$self"
