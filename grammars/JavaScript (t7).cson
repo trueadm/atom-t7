@@ -594,6 +594,22 @@
   't7-tag-attributes': {
     'patterns': [
       {
+        'name': 'entity',
+        'match': '(on)([A-Z])(.*)(\=)'
+      },
+      {
+        'name': 'entity',
+        'match': '(disabled\=)'
+      },
+      {
+        'name': 'entity',
+        'match': '(selected\=)'
+      },
+      {
+        'name': 'entity',
+        'match': '(checked\=)'
+      },
+      {
         'include': '#t7-tag-attribute-name'
       },
       {
@@ -762,9 +778,6 @@
         'include': '#t7-tag-attributes'
       },
       {
-        "include": "#t7-component-element"
-      },
-      {
         "include": "#interpolated_js"
       }
     ]
@@ -784,25 +797,6 @@
         },
         "end": "\\}",
         "name": "source.js.embedded.source",
-        "patterns": [
-          {
-            "include": "$self"
-          }
-        ]
-      }
-    ]
-  },
-  "t7-component-element": {
-    "patterns": [
-      {
-        "begin": "\\$\\{",
-        "captures": {
-          "0": {
-            "name": "support"
-          }
-        },
-        "end": "\\}",
-        "name": "entity",
         "patterns": [
           {
             "include": "$self"
